@@ -1,0 +1,28 @@
+image quiet_crossing = "images/backround/quite crossing.png"
+image black_bs = "images/backround/bgs_black.jpg"
+image school_road = "images/backround/school_road.png"
+image school_gate = "images/backround/school_gate.png"
+image classroom_day = "images/backround/Classroom Day.png"
+image classroom_afternoon = "images/backround/Classroom Afternoon.png"
+image library_evening = "images/backround/Library Afternoon.png"
+image school_gate_evening = "images/backround/school_gate_evening.png"
+image corner_evening = "images/backround/corner-afternoon.png"
+image corner_night = "images/backround/Street_Autumn_Night.png"
+image to_the_house_road = "images/backround/Street_Summer_Evening.png"
+image mc_room_night = "images/backround/mc room night.png"
+image mc_room_day = "images/backround/mc_room.png"
+image library_day = "images/backround/Library Day.png"
+image school_road_without_rain = "images/backround/school_road_withoutrain.png"
+image scholl_shelter = "images/backround/school_shelter.png"
+image rooftop_day = "images/backround/rooftop_day.png"
+image backschool_day = "images/backround/back_shool_day.png"
+image corridor_day = "images/backround/Corridor Day.png"
+
+#cg
+image reina_cg_library = "images/cg/reina_library_cg.png"
+image kuroha_cg_shelter = "images/cg/kuroha_shelter_cg.png"
+image aira_rooftop = "images/cg/aira_rooftop_cg.png"
+image reina_sleep_cg = "images/cg/reina_sleep_cg.png"
+image kuroha_backschool = "images/cg/kuroha_backschool_cg.png"
+
+

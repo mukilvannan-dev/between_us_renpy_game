@@ -50,19 +50,18 @@ define gui.hover_muted_color = '#5b7a99'
 
 ## The colors used for dialogue and menu choice text.
 define gui.text_color = '#ffffff'
-define gui.interface_text_color = '#ffffff'
+define gui.interface_text_color = '#e1e2ee'
 
 
 ## Fonts and Font Sizes ########################################################
 
 ## The font used for in-game text.
-define gui.text_font = "DejaVuSans.ttf"
+define gui.text_font = "fonts/animeace2_reg.otf"
 
 ## The font used for character names.
-define gui.name_text_font = "DejaVuSans.ttf"
-
+define gui.name_text_font = "fonts/Candy Beans.otf"
 ## The font used for out-of-game text.
-define gui.interface_text_font = "DejaVuSans.ttf"
+define gui.interface_text_font = "fonts/Kiss Love.otf"
 
 ## The size of normal dialogue text.
 define gui.text_size = 33
@@ -71,16 +70,16 @@ define gui.text_size = 33
 define gui.name_text_size = 45
 
 ## The size of text in the game's user interface.
-define gui.interface_text_size = 33
+define gui.interface_text_size = 55
 
 ## The size of labels in the game's user interface.
-define gui.label_text_size = 36
+define gui.label_text_size = 46
 
 ## The size of text on the notify screen.
 define gui.notify_text_size = 24
 
 ## The size of the game's title.
-define gui.title_text_size = 75
+define gui.title_text_size = 120
 
 
 ## Main and Game Menus #########################################################
@@ -188,7 +187,7 @@ define gui.confirm_button_text_xalign = 0.5
 define gui.page_button_borders = Borders(15, 6, 15, 6)
 
 define gui.quick_button_borders = Borders(15, 6, 15, 0)
-define gui.quick_button_text_size = 21
+define gui.quick_button_text_size = 40
 define gui.quick_button_text_idle_color = gui.idle_small_color
 define gui.quick_button_text_selected_color = gui.accent_color
 
@@ -248,6 +247,8 @@ define gui.file_slot_rows = 2
 ## The position of the left side of the navigation buttons, relative to the left
 ## side of the screen.
 define gui.navigation_xpos = 60
+define gui.game_menu_content_xpos = 500
+define gui.game_menu_content_width = 1400
 
 ## The vertical position of the skip indicator.
 define gui.skip_ypos = 15

@@ -20,7 +20,28 @@ default reina_affection=0
 default kuroha_affection = 0
 default free_choice = None
 
+label splashscreen:
+    scene black
+    $ renpy.pause(0.5, hard=True)
 
+    show title with dissolve
+    $ renpy.pause(3, hard=True)
+
+    scene black with dissolve
+    $ renpy.pause(1, hard=True)
+
+    scene black
+    $ renpy.pause(0.5, hard=True)
+
+    play sound gorogoro
+    show mukil_presents with dissolve
+    $ renpy.pause(3, hard=True)
+
+    scene black with dissolve
+    $ renpy.pause(1, hard=True)
+
+    return
+  
 label start:
     scene black
     with fade
@@ -91,35 +112,51 @@ label aira_intro:
         zoom 1.5
     pause 0.8
 
-    n "…"
+    n "Rainwater drips quietly from the crossing lights."
 
-    n "I turn around."
+    n "Footsteps approach from behind me."
 
     show aira neutral at center:
         yalign -1.0
     with dissolve
 
-    a "…You came here again."
+    a "There you are."
 
-    n "Of course it’s her. It’s always her."
+    a "You seriously walked ahead without me?"
+
+    mc "You were late."
 
     show aira pout at center:
         yalign -1.0
 
-    a "You didn’t even wait for me. That’s kind of mean, you know?"
+    a "By one minute."
 
+    a "One."
+
+    mc "That’s still late."
+
+    n "She lets out an annoyed sigh."
+
+    a "Wow."
+
+    a "What an amazing childhood friend you are."
 
 label aira_scene1:
 
-    a "…Anyway, you shouldn’t come here alone. It feels weird."
+    a "And why were you standing here alone like some depressed main character?"
 
-    n "We’ve been here before a long time ago, back when things were simpler."
+    mc "Maybe I am one."
 
-    a "Hey… you’re thinking too much again, aren’t you?"
+    show aira happy at center:
+        yalign -1.0
 
-    n "She always notices, even when I don’t say anything."
+    a "Nope."
 
-    a "Come on. Let’s go, we’ll be late."
+    a "You’re not cool enough for that."
+
+    n "…Rude."
+
+    a "Come on, let’s go before we’re late."
 
     hide aira
     with dissolve
@@ -136,50 +173,47 @@ label aira_scene1:
         yalign -1.0
     with dissolve
 
-    a "You still trip over nothing, or did you finally improve?"
+    a "So?"
+
+    a "Still tripping over absolutely nothing while walking?"
 
     menu:
-        "I’m still the same, I guess":
-            $ aira_affection += 1
+        "Yeah, probably":
             show aira happy
-            a "…Of course you are. Some things never change."
+            a "Knew it."
 
-        "I’ve improved":
-            a "Oh really? I’ll believe it when I see it."
-            show aira neutral
+        "Only in public":
+            a "That somehow makes it worse."
 
-        "Ignore her":
-            $ aira_affection -= 1
-            show aira pout
-            a "…Hey. Don’t ignore me."
+        "I evolved":
+            a "Into what?"
+
+            mc "A better idiot."
+
+            show aira happy
+            a "Fair enough."
+
     show aira neutral
 
-    n "We keep walking side by side, like always."
+    n "We walk beside each other like usual."
 
-    n "But something feels… slightly off."
+    n "The silence between us never feels awkward."
 
-    a "…I’m glad, though. That you didn’t change."
+    a "You know…"
 
-    pause 0.2
-
-    a "…Right?"
+    a "It’s kinda nice walking like this again."
 
     menu:
-        "Yeah, I’m the same":
-            a "…Good."
+        "Yeah. Feels normal":
+            a "Exactly."
 
-        "People change":
-            $ aira_affection -= 1
-            show aira concerned at left:
-                yalign -0.5
-            a "…That’s not funny."
+        "You sound old":
+            show aira pout
+            a "And you sound annoying."
 
-        "Stay silent":
-            $ aira_affection -= 1
-            a "…You’re doing it again. Thinking instead of answering."
-
-    pause 0.6
-
+        "You getting emotional?":
+            show aira happy
+            a "Shut up before I leave you behind."
 label aira_arrival:
 
     scene school_gate:
@@ -190,32 +224,46 @@ label aira_arrival:
         yalign -1.0
     with dissolve
 
-    n "We reach the school. Same gate, same noise, same routine."
+    n "We reach the school gate."
 
-    a "We made it just in time. See? If I wasn’t here, you’d definitely be late."
+    n "The same crowded entrance. The same noisy morning."
+
+    a "See?"
+
+    a "If I wasn’t here, you’d definitely be late."
 
     menu:
-        "I would’ve made it":
+        "I would've made it":
             show aira pout at left:
                 yalign -1.0
-            a "Oh really? I doubt that."
+            a "Yeah, sure."
+
+            a "And I’m the principal."
 
         "Yeah, probably":
-            a "Right? You should be grateful."
+            $ aira_affection += 1
             show aira happy
+            a "Finally."
 
-        "Stay silent":
-            $ aira_affection -= 1
-            show aira pout 
-            a "…Hey. Say something."
+            a "You admit I’m useful."
 
-    n "Students pass by us—some laughing, some rushing. Normal."
+        "You talk too much":
+            show aira pout
+            a "Wow."
+
+            a "And yet you still listen to me."
+
+    n "Students pass by us laughing, arguing, half-asleep."
+
+    n "Everything feels normal."
 
     n "Too normal."
 
-    n "I notice small things. Someone looking away too quickly, someone forcing a smile, someone pretending not to notice someone else."
+    n "Someone laughs louder than they mean to."
 
-    n "It’s always there. You just have to look."
+    n "Someone avoids looking at another person."
+
+    n "Small things stand out when you pay attention."
 
     show aira neutral at center:
         yalign -1.0
@@ -224,29 +272,41 @@ label aira_arrival:
 
     menu:
         "Doing what?":
-            a "That look."
+            a "That staring thing."
 
-        "Not really":
-            a "Don’t lie."
+        "I’m literally just standing here":
+            a "Mhm."
 
-        "Stay silent":
-            $ aira_affection -= 1
-            a "…You always go quiet when I ask something like that."
+            a "And overthinking."
 
-    a "You look at people like you’re trying to figure them out."
+        "You notice too much":
+            $ aira_affection += 1
+            show aira happy
+            a "Well, someone has to keep an eye on you."
 
-    pause 0.4
+    a "You always start observing everyone like you're solving a mystery."
 
-    a "It’s kind of… weird."
+    mc "Maybe I am."
 
-    n "She says it lightly, like it’s a joke. But it isn’t."
+    show aira pout at center:
+        yalign -1.0
+
+    a "Please."
+
+    a "You’d be the worst detective ever."
+
+    mc "That’s rude."
 
     show aira happy at center:
         yalign -1.0
 
-    a "Anyway, come on. Let’s go—we still have time before class."
+    a "But accurate."
 
-    n "She walks beside me. Like always."
+    a "Come on, we still have time before class."
+
+    n "She starts walking ahead."
+
+    n "And without thinking, I follow beside her like always."
 
 label classroom_scene:
 
@@ -472,7 +532,7 @@ label library_reina_intro:
 
     mc "Maybe something else."
 
-    n "I walk toward the shelves. One book stands out—not because it looks special, just… familiar."
+    n "I walk toward the shelves. One book stands out not because it looks special, just… familiar."
 
     mc "…"
 
@@ -485,7 +545,7 @@ label library_reina_intro:
     pause 0.5
 
     scene reina_cg_library:
-        zoom 1.4
+        zoom 1.5
     with fade
 
     n "I didn’t notice her earlier. She’s standing nearby."
@@ -500,7 +560,7 @@ label library_reina_intro:
 
     pause 0.5
 
-    n "She looks at the book on the table—the one I didn’t finish."
+    n "She looks at the book on the table the one I didn’t finish."
 
     r "You didn’t finish that one."
 
@@ -567,6 +627,43 @@ label library_reina_intro:
 
             n "This time… I don’t stop."
 
+        "Ask why she cares":
+            $ reina_affection += 1
+
+            mc "Why do you care so much?"
+
+            pause 0.5
+
+            r "…"
+
+            r "Because people give up too fast."
+
+            mc "On books?"
+
+            r "On everything."
+
+            pause 0.5
+
+            n "Her eyes drift toward the shelves."
+
+            r "Some things only become meaningful later."
+
+            mc "That sounds oddly personal."
+
+            pause 0.5
+
+            show reina shy
+
+            r "…Maybe."
+
+            pause 0.5
+
+            mc "Alright. I’ll give it another chance."
+
+            show reina normal
+
+            r "Good."
+
         "Ignore her and continue":
             mc "I’ll try this one anyway."
 
@@ -607,7 +704,22 @@ label library_reina_intro:
 
     r "You come here often?"
 
-    mc "Sometimes."
+    menu:
+        "Tell her the truth":
+            $ reina_affection += 1
+
+            mc "Mostly when I want somewhere quiet."
+
+            pause 0.5
+
+            r "…I understand that."
+
+            n "Her voice softens slightly."
+
+        "Keep it vague":
+            mc "Sometimes."
+
+    pause 0.5
 
     r "…I’ve seen you."
 
@@ -642,7 +754,7 @@ label library_reina_intro:
     n "This time… I don’t get distracted."
 
     stop music fadeout 1.5
-
+    
 label aira_scene3:
 
     scene school_gate_evening:
@@ -651,9 +763,9 @@ label aira_scene3:
 
     play music sad1 fadein 1.5
 
-    n "By the time I leave the school, the sky’s already changing."
+    n "By the time I leave school, the sun’s already starting to set."
 
-    n "Most people are gone."
+    n "Most students are already gone."
 
     pause 0.5
 
@@ -661,52 +773,69 @@ label aira_scene3:
         yalign -1.0
     with dissolve
 
-    a "You’re late."
+    a "Finally."
 
-    mc "A little."
+    a "Do you know how long I’ve been waiting here?"
+
+    mc "Five minutes?"
+
+    show aira pout at left:
+        yalign -1.0
+
+    a "…Seven."
+
+    mc "That’s basically five."
+
+    a "That’s not how numbers work."
 
     a "You stayed back again?"
 
     menu:
         "Yeah":
             $ aira_affection += 1
-            mc "Yeah. Library."
-            a "…Again."
+            mc "Library."
 
-        "Just a bit":
-            mc "Not that long."
-            a "You say that every time."
+            a "Wow."
 
-        "Stay silent":
-            $ aira_affection -= 1
-            show aira pout at left:
-                yalign -1.0
-            a "…Hey. Answer me."
+            a "Look at you being academic."
 
-    a "You’ve been doing that a lot lately."
+        "Just a little":
+            mc "It wasn’t that long."
 
-    mc "Doing what?"
+            a "You always say that."
 
-    a "Staying back."
+        "Got distracted":
+            show aira happy
+            mc "There was a cat outside."
 
-    pause 0.5
+            a "…Okay, that’s actually believable."
 
     show aira neutral at left:
         yalign -1.0
 
-    a "It’s new."
+    a "You’ve been doing that a lot lately though."
 
-    mc "Is it?"
+    mc "Doing what?"
 
-    a "Yeah. You didn’t used to."
+    a "Staying behind after class."
 
-    mc "Maybe I felt like it."
+    pause 0.4
 
-    a "…Hmm."
+    a "It’s weird."
+
+    mc "Why?"
+
+    a "Because you used to run out of school like your life depended on it."
+
+    mc "Maybe I matured."
+
+    show aira happy
+
+    a "No chance."
 
     pause 0.5
 
-    n "We start walking."
+    n "We start walking home together."
 
     scene corner_evening:
         zoom 1.5
@@ -716,90 +845,85 @@ label aira_scene3:
         yalign -1.0
     with dissolve
 
-    n "Same road. Same direction. Same as always."
+    n "Same road."
 
-    pause 0.5
+    n "Same evening routine."
 
-    a "So? What were you doing?"
+    a "So what do you even do there that long?"
 
     mc "Reading."
 
-    a "You?"
+    pause 0.2
 
-    mc "Yeah."
+    a "…You?"
 
-    a "Since when?"
+    mc "Why does everyone react like that?"
 
-    mc "…I don’t know."
+    a "Because you once used a book as a pillow."
 
-    a "You don’t even finish the ones you start."
+    mc "That was one time."
 
-    mc "That’s true."
-
-    pause 0.5
-
-    a "Then why now?"
-
-    mc "…"
+    a "Three times."
 
     menu:
-        "Just felt like it":
-            a "That’s not an answer."
-
-        "Someone told me to":
-            $ aira_affection -= 1
-            show aira pout
-            a "…Someone?"
-
-            mc "Library duty girl."
-
-            pause 0.5
-
-            a "…Oh."
-
-        "I’m trying to finish things":
+        "I’m improving":
             $ aira_affection += 1
-            a "…That’s new."
+            a "Scary."
+
+            a "At this rate you might actually become responsible."
+
+        "Books are less boring now":
+            a "Wow."
+
+            a "Character development."
+
+        "Someone recommended one":
+            show aira pout
+            a "Oh?"
+
+            a "Who?"
+
+    pause 0.4
+
+    mc "Why do you sound so suspicious?"
+
+    a "I’m not suspicious."
+
+    pause 0.2
+
+    show aira happy
+
+    a "I’m judging you."
+
+    mc "That’s worse."
+
+    n "She laughs quietly."
 
     pause 0.5
 
-    show aira concerned
+    a "Still…"
 
-    n "She walks a little quieter now. Not far… but not as close as before."
+    a "Don’t stay too late every day."
 
-    pause 0.5
+    mc "Why? You get lonely walking home alone?"
 
-    a "You’re changing."
+    show aira pout
 
-    mc "Am I?"
+    a "Obviously."
 
-    a "…A little."
+    a "Who else am I supposed to bully on the way home?"
 
-    pause 0.5
+    mc "So I’m just entertainment?"
 
-    a "I don’t know if I like that."
+    show aira happy
 
-    pause 0.8
-
-    n "She says it lightly, like it’s nothing."
-
-    n "But it stays."
-
-    pause 1.0
-
-    a "Anyway, don’t stay too late next time."
-
-    a "It’s… weird walking alone."
-
-    mc "You could go without me."
-
-    a "I don’t want to."
+    a "Exactly."
 
     pause 0.5
 
-    n "We keep walking."
+    n "We keep walking side by side."
 
-    n "The distance between us is small… but noticeable."
+    n "Like we always do."
 
     stop music fadeout 1.5
     pause 0.5
@@ -1761,8 +1885,9 @@ label reina_scene3:
 
 
 label kuroha_rain_scene:
-
+    pause 0.6
     scene black
+    with fade
     play music bgm_rain fadein 1.5
 
     n "Rain starts just as I leave the school building."
@@ -1779,7 +1904,7 @@ label kuroha_rain_scene:
 
     pause 0.7
 
-    n "I move under the small shelter near the gate."
+    n "I move under the small shelter near the gate, pulling my collar up."
 
     pause 0.8
 
@@ -1793,7 +1918,7 @@ label kuroha_rain_scene:
 
     n "It’s her."
 
-    n "The girl from before."
+    n "The quiet girl from before. She’s leaning against the pillar, looking out into the gray rain."
 
     pause 0.8
 
@@ -1801,33 +1926,34 @@ label kuroha_rain_scene:
 
     pause 0.5
 
-    none "You’re late again."
+    none "You took the long way down the hall today."
 
     pause 0.8
 
     menu:
         "You remember that?":
+            $kuroha_affection +=1
 
-            mc "You actually remembered that?"
+            mc "Wait… you notice stuff like that?"
 
-            none "Mm."
+            none "Mm. You usually walk past the courtyard, but you used the science wing stairs today."
 
             mc "That’s kinda impressive."
 
-
-            none "…Weird, probably."
+            none "…Is it? I just… like paying attention to things."
 
         "That’s a little creepy":
-            mc "That’s a little creepy."
-
+            mc "That’s... honestly a little creepy."
 
             none "…Sorry."
 
             mc "You apologize really fast."
 
+            none "I don't want you to think badly of me. I just happen to remember things."
+
         "You were waiting here?":
 
-            mc "Wait… were you waiting here?"
+            mc "Were you waiting here for the rain to stop?"
 
             pause 0.5
 
@@ -1835,13 +1961,13 @@ label kuroha_rain_scene:
 
             pause 0.5
 
-            none "…Maybe a little."
+            none "…I was just waiting for you to come out."
 
     pause 0.8
 
     n "Rain taps softly against the roof above us."
 
-    n "Neither of us says anything for a moment."
+    n "She shifts a little closer, her eyes locked onto the pavement between us."
 
     pause 0.7
 
@@ -1855,18 +1981,17 @@ label kuroha_rain_scene:
 
     pause 0.5
 
-    none "Places you pass by."
+    none "Just places where I know I can see you."
 
     pause 1.0
 
-    mc "…That sounds worse somehow."
+    mc "…That sounds a little intense."
 
-
-    none "I didn’t mean it like that."
+    none "I didn’t mean it badly. It’s just comfort, I guess."
 
     pause 0.6
 
-    mc "Then how did you mean it?"
+    mc "Comfort?"
 
     pause 0.7
 
@@ -1874,7 +1999,7 @@ label kuroha_rain_scene:
 
     pause 0.8
 
-    none "I just notice you a lot."
+    none "The school is very loud. But when I look at you, everything feels quiet."
 
     pause 1.0
 
@@ -1889,7 +2014,7 @@ label kuroha_rain_scene:
     menu:
         "Then why notice me?":
 
-            mc "Then why pay attention to me at all?"
+            mc "Then why look at me at all? I’m completely ordinary."
 
             pause 0.8
 
@@ -1897,17 +2022,19 @@ label kuroha_rain_scene:
 
             pause 0.5
 
-            none "You’re easy to notice."
+            none "Ordinary people don't make me feel like this."
 
-            mc "That sounds fake."
+            mc "Like what?"
 
-            none "It’s not."
+            none "Like nothing else matters."
 
         "You say strange things":
-            mc "You say strange things really casually."
+
+            $kuroha_affection +=1
+
+            mc "You say things like that completely casually, you know that?"
 
             pause 0.5
-
 
             none "Sorry."
 
@@ -1915,7 +2042,7 @@ label kuroha_rain_scene:
 
             pause 0.5
 
-            none "…I’m not very good at this."
+            none "…I’m not very good at talking to people. My heart beats too fast."
 
         "I’m just a normal guy":
             mc "I’m literally just some guy."
@@ -1924,29 +2051,27 @@ label kuroha_rain_scene:
 
             pause 0.5
 
-            none "That’s probably why."
+            none "That’s what I like about you. You don't realize how much space you take up in my mind."
 
     pause 0.7
 
-    none "You always look distracted."
+    none "But you’ve looked tired lately, Ren."
 
     pause 0.5
 
-    none "Like part of you is somewhere else."
+    none "Your posture is different when you're thinking about someone else."
 
     pause 0.8
 
-    mc "That’s kinda specific."
+    mc "That’s... pretty specific. How could you possibly tell that?"
 
-    none "Mm."
+    none "Because I know exactly how you look when you're just being yourself."
 
     pause 0.7
 
-    n "She says things quietly."
+    n "She says it softly, with a small, gentle smile."
 
-    n "Not confidently."
-
-    n "Just honestly."
+    n "But her eyes don't blink. They are heavy, focused entirely on my face."
 
     pause 0.8
 
@@ -1954,26 +2079,23 @@ label kuroha_rain_scene:
 
     pause 0.7
 
+    none "…That sounds a bit dramatic, doesn't it?"
 
-    none "…That sounds bad when you say it out loud."
-
-    mc "Because it is bad."
+    mc "I mean, it sounds like you're tracking me."
 
     pause 0.5
 
-    none "Sorry."
+    none "I just care. More than other people do."
 
     pause 0.6
 
-    mc "You said that already."
+    mc "Other people?"
 
-    none "…Sorry."
+    none "The people who take you for granted."
 
     pause 0.7
 
-    n "I almost laugh."
-
-    n "Almost."
+    n "I study her face for a second. There's no malice there, just a strange, absolute sincerity."
 
     pause 0.6
 
@@ -1986,45 +2108,48 @@ label kuroha_rain_scene:
     menu:
         "You’re kinda funny":
 
-            mc "You’re kinda funny."
+            $kuroha_affection +=1
+
+            mc "You’re kinda funny. You say the most intense things with a straight face."
 
             pause 0.5
 
-            none "…Am I being made fun of?"
+            none "…Am I being weird?"
 
-            mc "Maybe a little."
+            mc "Maybe a little. But it’s better than you being mean."
 
             pause 0.5
 
-
-            none "…That’s mean."
+            none "…I could never be mean to you. I wouldn't dare."
 
         "You’re really awkward":
-            mc "You’re really awkward, huh?"
+
+            $kuroha_affection+=1
+            mc "You’re really awkward, aren't you?"
 
             pause 0.5
 
-            none "…Probably."
+            none "…Probably. I think about talking to you all the time, but my mind goes blank when it actually happens."
 
-            mc "At least you know."
+            mc "At least you’re honest about it."
 
         "You nervous or something?":
 
-            mc "Are you nervous?"
+            mc "Are you nervous right now? Your voice is shaking a bit."
 
             pause 0.8
 
             none "…A little."
 
-            mc "Why?"
+            mc "Why? We're just talking."
 
             pause 0.5
 
-            none "I don’t usually start conversations."
+            none "Because you're finally looking back at me."
 
     pause 0.8
 
-    mc "Then why talk to me?"
+    mc "So... why did you decide to step out and talk to me today?"
 
     pause 1.0
 
@@ -2034,12 +2159,11 @@ label kuroha_rain_scene:
 
     pause 0.8
 
-
     none "Because if I waited longer…"
 
     pause 0.7
 
-    none "someone else would always get there first."
+    none "I was worried someone else would take all your time."
 
     pause 1.0
 
@@ -2047,7 +2171,7 @@ label kuroha_rain_scene:
 
     pause 0.8
 
-    none "You’re always with someone."
+    none "You're always giving your attention away."
 
     pause 0.5
 
@@ -2055,23 +2179,23 @@ label kuroha_rain_scene:
 
     pause 0.5
 
-    none "And now the library girl too."
+    none "And that girl in the library. Reina."
 
     pause 0.8
 
     mc "You know Reina?"
 
-    none "Not really."
+    none "I saw her give you that book. She stayed close to you for a long time."
 
     pause 0.5
 
-    none "I just see her around you now."
+    none "I didn’t like how she looked at you. Like she thought she understood you."
 
     pause 0.8
 
-    n "The way she says it doesn’t sound angry."
+    n "Her voice doesn't change, but the temperature in the air suddenly feels lower."
 
-    n "Just… quietly disappointed."
+    n "She says it with the calm disappointment of someone stating a simple fact."
 
     pause 0.7
 
@@ -2079,17 +2203,17 @@ label kuroha_rain_scene:
         "You noticed all that?":
             $ kuroha_affection += 1
 
-            mc "You noticed all that just from watching?"
+            mc "You noticed all that just from across the room?"
 
-            none "Mm."
+            none "Mm. I notice everything that involves you."
 
-            mc "That’s impressive."
+            mc "That’s... dynamic."
             show kuroha s_blush
 
-            none "…Still sounds creepy."
+            none "…I just want to be the one who knows you best."
 
         "You overthink too much":
-            mc "You overthink too much."
+            mc "You overthink things too much. They're just my friends."
 
             pause 0.5
 
@@ -2097,58 +2221,47 @@ label kuroha_rain_scene:
 
             pause 0.5
 
-            none "But I kept thinking if I stayed quiet…"
-
-            none "you’d never notice me."
+            none "But friends can be replaced. I don't want to just be a friend."
 
         "That’s kinda cute":
             $ kuroha_affection += 1
 
-            mc "That’s actually kinda cute."
+            mc "The fact that you’re worrying over something like that is actually kind of cute."
 
             pause 1.0
             show kuroha full_blush
 
-            none "…Cute?"
+            none "…Cute? You think I'm cute?"
 
-            mc "Yeah."
+            mc "Yeah. In a quiet sort of way."
 
             pause 0.5
 
-            none "…No one says that to me."
+            none "…Good. Then keep your eyes on me. Just me."
 
     pause 0.8
 
-    mc "So you decided to suddenly talk to me because of that?"
+    mc "You talk like you’ve been planning this conversation for a while."
 
     pause 0.8
 
-
-    none "…Maybe."
-
-    pause 0.5
-
-    mc "That’s actually kind of funny."
-
-    none "It is?"
-
-    mc "A little."
+    none "…Maybe a little."
 
     pause 0.5
 
-    mc "You make it sound like I’m impossible to approach."
+    mc "Well, you don't have to worry. I’m not going anywhere."
 
-    none "You are."
+    none "I know."
 
-    mc "I literally just stand around."
+    mc "You do?"
 
-    none "Exactly."
+    none "Mm. Because I won't let you."
 
     pause 0.7
 
-    n "That answer comes out immediately."
+    n "She laughs softly right after saying it, a small, airy sound."
 
-    n "Like she’s thought about it before."
+    n "It feels like a joke. But her eyes stay completely still."
 
     pause 0.8
 
@@ -2156,19 +2269,21 @@ label kuroha_rain_scene:
         "You really are strange":
             $ kuroha_affection += 1
 
-            mc "You really are strange."
+            mc "You really are a strange girl."
 
             pause 0.5
 
             show kuroha genuine_smile
 
-            none "…You noticed."
+            none "…Is that a bad thing?"
+
+            mc "Not necessarily. Just... different."
 
         "I still don’t get you":
 
             show kuroha normal
 
-            mc "I still don’t understand you."
+            mc "I still don’t really understand you."
 
             pause 0.5
 
@@ -2176,20 +2291,20 @@ label kuroha_rain_scene:
 
             pause 0.5
 
-            k "I don’t really understand myself either."
+            none "You don’t have to understand me. Just get used to me."
 
         "You’re more normal than you think":
             $ kuroha_affection += 1
 
-            mc "You’re more normal than you think."
+            mc "You’re trying so hard to sound mysterious, but you're probably just a normal girl."
 
             pause 0.8
 
             show kuroha genuine_smile
 
-            none "…Really?"
+            none "…Do you really think so?"
 
-            mc "Yeah."
+            mc "Yeah. Just a little shy."
 
             pause 0.5
 
@@ -2197,25 +2312,31 @@ label kuroha_rain_scene:
 
             pause 0.5
 
-            none "That’s new."
+            none "If that makes you comfortable... then yes. I'm completely normal."
 
     pause 0.7
 
-    n "The rain slowly starts getting lighter."
+    n "The lunch bell cuts through the air, signaling the end of the break."
 
     pause 0.5
 
-    mc "Looks like it’s stopping."
+    mc "Looks like it’s over. I should probably get back to home."
 
     none "Mm."
 
     pause 0.6
 
-    mc "I’m Ren, by the way."
+    mc "By the way... I never got your name."
 
     pause 0.7
 
-    k "…Kuroha."
+    none "…"
+
+    pause 0.5
+
+    show kuroha genuine_smile
+
+    none "Kuroha."
 
     mc "Kuroha, huh."
 
@@ -2229,7 +2350,7 @@ label kuroha_rain_scene:
         "It suits you":
             $ kuroha_affection += 1
 
-            mc "It suits you."
+            mc "It suits you. Quiet, but it stays with you."
 
             pause 0.8
 
@@ -2237,18 +2358,16 @@ label kuroha_rain_scene:
 
             k "…"
 
-            mc "Why do you look surprised?"
+            mc "What’s wrong?"
 
-            k "I wasn’t expecting a compliment."
+            k "Nothing. I’m just going to keep thinking about you saying that all night."
 
         "Pretty unique":
-            $kuroha_affection += 1
+            $ kuroha_affection += 1
 
-            mc "Pretty unique name."
+            mc "Pretty unique name. Definitely won't forget it."
 
-            k "You think so?"
-
-            mc "Yeah."
+            k "Good. I want to be a permanent fixture in your mind."
 
         "I’ll try to remember it":
             mc "I’ll try to remember it."
@@ -2257,30 +2376,32 @@ label kuroha_rain_scene:
 
             show kuroha slight_smile
 
-            k "…I’d like that."
+            k "…You will. I’ll make sure we talk again soon."
 
     pause 0.8
 
-    n "For a moment, neither of us moves."
+    n "She takes a half-step back, melting smoothly into the shadow of the brick gate."
 
     pause 0.7
 
-    k "…Goodnight, Ren."
+    k "…Have a safe walk home, Ren. Don't look back."
 
-    mc "Goodnight."
+    mc "Uh, alright. Goodnight."
 
     pause 0.8
 
     hide kuroha
     with dissolve
 
-    n "She walks into the rain without looking back."
+    n "She turns and walks into the drizzling evening, her movements quiet and graceful."
 
     pause 0.8
 
-    n "…But this time."
+    n "…But as I start walking away, a strange feeling settles in my chest."
 
-    n "She doesn’t feel like a stranger anymore."
+    n "She didn’t ask for my number. She didn't ask where I live."
+
+    n "Yet, I get the distinct impression that she already knows exactly where I’m going."
 
     stop music fadeout 2.0
 
@@ -3562,7 +3683,7 @@ label kuroha_scene2:
 
     pause 0.6
 
-    n "So I leave the classroom before someone tries to drag me into conversation."
+    n "So I leave the classroom before anyone tries to drag me into a hollow conversation."
 
     pause 0.7
 
@@ -3606,9 +3727,9 @@ label kuroha_scene2:
 
     pause 0.7
 
-    n "She shifts slightly on the bench."
+    n "She shifts slightly on the bench, pulling her skirt down tight."
 
-    n "Like she was making space before I even arrived."
+    n "Like she was already adjusting herself to make space before I even turned the corner."
 
     pause 0.8
 
@@ -3624,27 +3745,27 @@ label kuroha_scene2:
 
     pause 0.7
 
-    mc "This place is kinda hidden."
+    mc "This place is pretty well hidden."
 
     pause 0.5
 
-    k "That’s why I like it."
+    k "That’s why I chose it."
 
     pause 0.8
 
-    n "There’s a small convenience store sandwich beside her."
+    n "There’s a small convenience store sandwich resting beside her."
 
-    n "Untouched."
+    n "Completely untouched."
 
     pause 0.6
 
-    mc "You haven’t eaten yet."
+    mc "You haven’t even unwrapped it yet."
 
     k "I was waiting."
 
     pause 0.8
 
-    mc "…Waiting?"
+    mc "…Waiting for what?"
 
     pause 0.6
 
@@ -3656,35 +3777,35 @@ label kuroha_scene2:
 
     k "Sorry."
 
-    mc "You always say sorry after saying something weird."
+    mc "You always say sorry after saying something that catches me off guard."
 
     pause 0.7
 
-    k "Because you always call it weird."
+    k "Because I don't want to startle you away. But I'm just telling the truth."
 
     pause 0.8
 
-    n "I sit on the other side of the bench."
+    n "I take a seat on the opposite end of the bench."
 
     pause 0.5
 
-    n "Kuroha glances at the distance between us."
+    n "Kuroha glances at the gap left between us."
 
     pause 0.6
 
-    k "…You sat far away."
+    k "…You sat far away today."
 
-    mc "There’s literally space for one more person between us."
+    mc "There’s literally space for a whole person between us."
 
     k "Mm."
 
     pause 0.7
 
-    n "She sounds oddly disappointed."
+    n "Her voice has a flat, quiet disappointment to it that makes me feel strangely exposed."
 
     pause 0.8
 
-    mc "Did you know I’d come here?"
+    mc "Did you actually know I’d come back here?"
 
     pause 0.6
 
@@ -3696,27 +3817,27 @@ label kuroha_scene2:
         yalign -1.0
     with dissolve
 
-    k "I thought you might."
+    k "I was sure of it."
 
-    mc "Why?"
+    mc "How?"
 
     pause 0.5
 
-    k "You look for quiet places when there’s too many people."
+    k "Whenever the classroom gets too loud, your left shoulder tenses up. Then you look down at your desk, count to three, and leave."
 
     pause 0.9
 
     mc "…"
 
-    mc "You notice too much."
+    mc "You notice some terrifyingly specific things."
 
     pause 0.6
 
-    k "Only about you."
+    k "Only when it comes to you."
 
     pause 1.0
 
-    mc "That does NOT make it better."
+    mc "That does NOT make it feel any safer, Kuroha."
 
     pause 0.7
 
@@ -3724,13 +3845,11 @@ label kuroha_scene2:
 
     n "Kuroha smiles faintly."
 
-    n "Like she already expected that reaction."
+    n "A gentle, soft expression, but her eyes stay completely locked onto mine."
 
     pause 0.8
 
-    mc "So what?"
-
-    mc "You’ve just been secretly observing me this whole time?"
+    mc "So what? Have you just been secretly watching me all this time?"
 
     pause 0.7
 
@@ -3738,88 +3857,83 @@ label kuroha_scene2:
 
     mc "Kuroha."
 
-    k "…Mostly secretly."
+    k "…Mostly secretly. Until you started looking back."
 
     pause 0.8
 
-    n "I almost laugh."
+    n "I almost let out a dry laugh. Her honesty is incredibly unsettling."
 
     pause 0.6
 
-    mc "You’re honest about really strange things."
+    mc "You admit to things that should probably make me run away."
 
     pause 0.7
 
-    k "You don’t get angry."
+    k "But you aren't running."
 
     mc "Should I be?"
 
     pause 0.8
 
-    k "…I’d rather you weren’t."
+    k "…I’d prefer if you stayed right where you are."
 
     pause 0.9
 
-    n "There’s something unexpectedly soft in that answer."
+    n "There’s an intense, heavy gravity behind that soft whisper."
 
     pause 0.7
 
     menu:
-
         "Move a little closer":
             $ kuroha_affection += 2
 
-            n "I shift slightly closer on the bench."
+            n "I shift slightly closer on the wooden bench, closing half the distance."
 
             pause 0.6
 
-            n "Kuroha immediately notices."
+            n "Kuroha’s eyes widen just a fraction as she notices."
 
             show kuroha s_blush
 
             k "…"
 
-            mc "What?"
+            mc "What? You were the one complaining about the space."
 
             pause 0.5
 
-            k "Nothing."
+            k "Nothing. My chest just... felt very tight for a second."
 
             pause 0.5
 
         "Ask why she notices you so much":
             $ kuroha_affection += 1
 
-            mc "Seriously though."
-
-            mc "Why me?"
+            mc "Seriously though. Out of everyone in this school... why me?"
 
             pause 0.7
 
-            k "I wil tell you one day"
+            k "I will tell you one day, but for now, it's a secret."
 
-            k "but for now its a secrete"
+            k "I only needed to see you once to realize it."
 
-            k "after saw you in my school"
-
-            k "And i noticed you once."
+            k "You looked... entirely separate from everyone else. Like you belonged somewhere quiet."
 
             pause 0.5
 
-            k "Then I kept noticing you."
+            k "Once I realized that, I couldn't stop looking."
 
             pause 0.9
 
-            mc "That sounds dangerously close to obsession."
+            mc "That sounds dangerously close to an obsession."
 
             show kuroha s_blush
 
-            k "…Maybe a little."
+            k "…Maybe. But is it wrong to protect what comforts you?"
 
         "Tease her":
             $ kuroha_affection += 1
 
-            mc "You sound like a stray cat that decided I belong to it."
+            mc "You talk like a stray cat that silently decided I'm its property."
 
             pause 0.7
 
@@ -3829,163 +3943,68 @@ label kuroha_scene2:
 
             pause 0.5
 
-            k "That’s not completely wrong."
+            k "That’s not completely wrong. Except cats can lose interest."
 
             pause 1.0
 
-            mc "You admitted that WAY too easily."
+            mc "You admitted that way too easily. Should I be worried?"
 
             show kuroha slight_smile
+            k "Only if you try to leave me behind."
 
     pause 0.8
 
-    n "The wind moves softly through the trees behind us."
+    n "The wind moves softly through the branches above us, filtering the afternoon light."
 
     pause 0.6
 
-    n "For someone so quiet…"
-
-    n "Kuroha somehow makes the silence feel full instead of empty."
-
-    pause 0.8
-
-    n "The wind moves softly through the trees behind us."
-
-    pause 0.6
-
-    n "Kuroha quietly unwraps her sandwich."
+    n "She quietly cracks open the plastic wrap of her sandwich, her movements slow and deliberate."
 
     pause 0.5
 
-    n "Then stops halfway."
+    n "Then she stops, looking down at the ground."
 
     pause 0.7
 
-    k "…You came later than usual today."
+    k "…You were talking to Aira before fifth period yesterday."
 
-    mc "You keep track of that too?"
+    mc "You were matching the hallways then, too?"
 
     pause 0.5
 
     k "Mm."
 
-    mc "That’s actually starting to sound dangerous."
+    mc "Kuroha..."
 
     pause 0.8
 
     show kuroha s_blush
 
-    k "I just notice things about you."
+    k "She was laughing at something you said. She touched your arm."
 
-    mc "That’s not a normal amount of noticing."
+    mc "She’s just being loud, like usual. It’s normal for her."
 
     pause 0.7
 
-    k "Maybe not."
+    k "I didn’t like it."
 
     pause 0.8
 
-    n "She says it without embarrassment."
+    n "She says it without an ounce of anger in her tone. It’s a completely level statement."
 
-    n "Almost like she doesn’t see the problem."
+    n "And somehow, that absolute calm makes it sound much worse."
 
     pause 0.9
 
-    mc "So what?"
-
-    mc "Do you just watch me all day?"
+    mc "It was just a normal conversation."
 
     pause 0.7
 
-    k "Not all day."
+    k "I know."
 
     pause 0.5
 
-    k "Just when I can."
-
-    pause 1.0
-
-    mc "Kuroha."
-
-    pause 0.6
-
-    k "…Sorry."
-
-    mc "You really make that word work overtime."
-
-    pause 0.7
-
-    n "She quietly takes a bite of her sandwich."
-
-    pause 0.6
-
-    k "You sit by the window during morning class."
-
-    pause 0.5
-
-    k "You stop paying attention after around twenty minutes."
-
-    pause 0.5
-
-    k "And when Aira talks to other people…"
-
-    pause 0.5
-
-    k "you look out the window instead of joining."
-
-    pause 1.0
-
-    mc "…Okay."
-
-    mc "Now you sound like a stalker."
-
-    pause 0.7
-
-    show kuroha sad
-
-    k "That’s bad, right?"
-
-    mc "Very."
-
-    pause 0.5
-
-    k "Oh."
-
-    pause 0.8
-
-    n "She actually looks bothered by that."
-
-    pause 0.6
-
-    mc "…You really don’t realize how weird you sound sometimes?"
-
-    pause 0.7
-
-    k "Not until after I say it."
-
-    pause 0.8
-
-    mc "Amazing."
-
-    pause 0.7
-
-    n "Kuroha lowers her gaze for a moment."
-
-    pause 0.5
-
-    k "I tried not to talk to you before."
-
-    pause 0.8
-
-    mc "Before?"
-
-    pause 0.5
-
-    k "Mm."
-
-    pause 0.6
-
-    k "But then you started spending time with more people."
+    k "But it feels like people keep trying to crowd around you lately."
 
     pause 0.5
 
@@ -3993,357 +4012,149 @@ label kuroha_scene2:
 
     pause 0.5
 
-    k "The library girl."
+    k "And that girl from the library. Reina."
 
     pause 0.8
 
-    k "And I thought…"
+    k "Every time I look, someone else is trying to take up your thoughts."
 
     pause 0.7
 
-    show kuroha s_blush
+    show kuroha sad
 
-    k "if I waited longer…"
+    k "I realized... if I kept waiting in the background..."
 
     pause 0.6
 
-    k "you’d never notice me."
+    k "they would take every piece of your time until you had nothing left for me."
 
     pause 1.2
 
     mc "…"
 
-    n "That answer comes out quieter than the others."
+    n "Her voice drops to a faint whisper, drifting off into the wind."
 
     pause 0.8
 
-    mc "So this whole thing is because you got impatient?"
+    mc "So you decided to suddenly approach me because you felt rushed?"
 
     pause 0.6
 
     show kuroha genuine_smile
 
-    k "Mm."
+    k "Mm. I had to let you know I was here."
 
-    mc "That’s insane."
+    mc "That’s a little wild, you know."
 
     pause 0.5
 
-    k "A little."
+    k "Perhaps."
 
     pause 0.8
 
-    n "And somehow…"
-
-    n "she sounds proud of it."
+    n "There is an unsettling warmth in her expression, like she's entirely satisfied with her logic."
 
     pause 0.9
 
-    mc "You know what the worst part is?"
+    mc "You tell me these deeply heavy things with a completely straight face."
 
     pause 0.5
 
     k "…?"
 
-    mc "You say all this with a completely straight face."
-
-    pause 0.7
-
     show kuroha sweetSmile
 
-    k "Would it be better if I smiled more?"
+    k "Would it make you feel safer if I smiled through it?"
 
     pause 0.8
 
-    mc "That somehow makes it worse."
+    mc "No, that definitely makes it feel a lot more threatening."
 
     pause 0.7
 
-    n "Kuroha quietly laughs under her breath."
+    n "Kuroha lets out a soft, airy laugh under her breath."
 
-    pause 0.8
-
-    n "Small."
-
-    n "Soft."
-
-    n "But definitely real."
+    n "It sounds completely innocent, which only makes the whiplash deeper."
 
     pause 0.9
 
     k "…Ren?"
 
-    mc "Hm?"
+    mc "Yeah?"
 
     pause 0.5
 
-    k "Come here again tomorrow."
+    k "Come back to this bench tomorrow."
 
     pause 0.9
 
-    mc "Still assuming I will?"
+    mc "Are you just assuming I will?"
 
     pause 0.6
 
-    k "You probably will."
+    k "You will get tired of the noise again. You always do."
 
     pause 0.5
 
-    k "You always come to quiet places eventually."
-
-    pause 0.8
-
-    k "So I’ll be here first."
+    k "So I’ll be sitting right here, waiting for you to find me."
 
     pause 1.0
 
-    mc "That sounds like a threat."
+    mc "Sounds like you're trapping me."
 
     pause 0.5
 
-    k "It’s not."
+    k "No."
 
     pause 0.6
 
-    k "Probably."
+    k "I’m just making sure you have a place to return to."
 
     pause 1.0
 
-    n "…Yeah."
+    n "The lunch bell cuts through the air, signaling the end of the break."
 
-    n "Definitely strange."
-    
-    mc "Bye..."
+    mc "I should get back to class..."
 
-    k "See you tommorow...."
+    k "Go ahead. I'll see you tomorrow, Ren."
 
     jump afternoon_transition
 
 label afternoon_transition:
 
-    scene classroom_afternoon
-    with fade
+    stop music fadeout 2.0
+    scene black with fade
+    pause 1.0
 
-    play music sweet fadein 1.5
+    n "The rest of the afternoon passes in a blur of monotone lectures and the scraping of chalk."
 
-    n "The rest of the afternoon passes slowly."
+    pause 0.5
 
-    pause 0.6
+    n "I try to focus on the blackboard."
 
-    n "Teachers talk."
-
-    n "Pages turn."
-
-    n "Someone yawns near the window."
-
+    n "But can't"
     pause 0.8
 
-    mc "…"
-
-    pause 0.7
-
-    if free_choice == "aira":
-
-        n "For some reason…"
-
-        n "I keep remembering Aira’s face during lunch."
-
-        pause 0.8
-
-        n "That stupid proud smile she makes when she wins an argument."
-
-    elif free_choice == "reina":
-
-        n "My thoughts drift back to the library."
-
-        pause 0.8
-
-        n "And Reina quietly smiling behind her book."
-
-    elif free_choice == "kuroha":
-
-        n "I keep thinking about the bench behind the school."
-
-        pause 0.8
-
-        n "\"You probably will.\""
-
-        pause 0.7
-
-        n "That weird confidence in Kuroha’s voice still lingers."
-
-    pause 0.8
-
-    n "The final bell finally echoes through the classroom."
-
-    n "Another school day ends."
-
-    stop music fadeout 1.5
-
-    jump evening_transition
-
-label evening_transition:
-
-    scene school_gate_evening:
+    scene classroom_afternoon:
         zoom 1.5
     with fade
 
-    play music sweet fadein 1.5
+    n "When the final chime rings, signaling the end of classes, the room immediately fills with the rustle of packing bags."
 
-    n "By the time I leave the classroom…"
+    pause 0.5
 
-    n "the sky is already starting to change."
-
-    pause 0.7
-
-    n "Students slowly scatter in different directions."
-
-    n "Some head to clubs."
-
-    n "Some rush home."
-
-    pause 0.8
-
-    n "The school feels quieter now."
-
-    pause 0.7
-
-    mc "…"
+    n "I don't wait around for the chatter to start."
 
     pause 0.6
 
-    if free_choice == "aira":
-
-        show aira happy at left:
-            yalign -1.0
-        with dissolve
-
-        a "You took forever."
-
-        mc "You waited?"
-
-        a "Obviously."
-
-        pause 0.5
-
-        a "Who else is gonna walk home with you?"
-
-        pause 0.7
-
-        mc "You say that like I’ll collapse alone."
-
-        show aira pout
-
-        a "You probably would."
-
-        pause 0.8
-
-        n "She says it immediately."
-
-        n "Without even thinking about it."
-
-        pause 0.7
-
-        hide aira
-        with dissolve
-
-    elif free_choice == "reina":
-
-        n "As I pass the hallway near the library…"
-
-        pause 0.7
-
-        show reina normal at center:
-            yalign -1.0
-        with dissolve
-
-        r "Going home?"
-
-        mc "Eventually."
-
-        pause 0.5
-
-        r "…You kept staring at the same page earlier."
-
-        mc "You noticed that?"
-
-        pause 0.6
-
-        r "Mm."
-
-        pause 0.5
-
-        r "You looked distracted."
-
-        pause 0.7
-
-        mc "Maybe your book’s too difficult."
-
-        show reina slight_smile
-
-        r "Or maybe you’re just bad at focusing."
-
-        pause 0.8
-
-        n "…Fair enough."
-
-        hide reina
-        with dissolve
-
-    elif free_choice == "kuroha":
-
-        n "I slow down near the back gate for some reason."
-
-        pause 0.8
-
-        n "…And immediately regret it."
-
-        pause 0.7
-
-        show kuroha normal at right:
-            yalign -1.0
-        with dissolve
-
-        k "You came."
-
-        mc "You make it sound like this was planned."
-
-        pause 0.5
-
-        k "Mm."
-
-        pause 0.6
-
-        mc "That answer is concerning."
-
-        show kuroha sweetSmile
-
-        k "You still stopped walking."
-
-        pause 0.8
-
-        n "…She has a point."
-
-        hide kuroha
-        with dissolve
-
-    pause 0.9
-
-    n "The evening air feels cooler now."
-
-    pause 0.7
-
-    n "Another normal day should be ending."
+    n "I grab my things, slide my chair in, and walk out into the hallway alone."
 
     pause 0.8
 
-    n "But lately…"
+    scene black with fade
+    pause 1.0
 
-    n "things don’t feel as routine anymore."
-
-    stop music fadeout 1.5
-
-    jump home_night_scene
+    jump home_night_scene  
 
 label home_night_scene:
 
@@ -4385,43 +4196,75 @@ label home_night_scene:
 
     pause 0.8
 
-    n "I reach for my phone."
-
-    n "Scroll aimlessly for a while."
-
-    pause 0.7
-
-    n "Random videos."
-
-    n "Random posts."
-
-    n "Nothing interesting."
-
-    pause 0.8
-
-    mc "…"
-
-    pause 0.7
-
-    n "Eventually, I put it away."
-
-    pause 0.8
-
-    n "The ceiling stays dark and quiet above me."
-
-    pause 1.0
-
-    n "Another normal day ends."
-
-    pause 0.8
-
-    scene black
-    with fade
-
-    n "And tomorrow will probably be the same."
-
+    n "..."
+    
+    n "I stare up at the ceiling, watching the shadows from the window stretch across the plaster."
+    
     stop music fadeout 2.0
+    play sound "sfx_phone_buzz" 
+    pause 0.5
+    
+    mc "An alert...?"
+    
+    n "My phone screen lights up the dark room, casting a pale blue glow over my face."
+    
+    nvl clear
+    
+    menu:
+        "Check messages from Aira" if aira_affection >= 2 and free_choice == "aira":
+            n "It's a text from Aira."
+            a_nvl "Hey, you made it home alright?"
+            a_nvl "You looked like a zombie during lunch today. Seriously, don't forget to eat dinner."
+            mc_nvl "I'm fine. Just tired."
+            a_nvl "Mhm. Sure. Don't be late tomorrow morning or I'm leaving you."
+            nvl clear
+            
+        "Check messages from Reina" if reina_affection >= 3 and free_choice == "reina":
+            n "A notification from an unknown number... no, it's signed at the bottom."
+            r_nvl "You left your bookmark at the counter."
+            r_nvl "Don't lose your place in the book tomorrow."
+            mc_nvl "Thanks. I'll make sure to get it."
+            r_nvl "Good night, Ren."
+            nvl clear
+            
+        "Check the unknown notification" if kuroha_affection >= 3 and free_choice == "kuroha":
+            $ kuroha_affection += 1
+            n "It's an unknown contact. No name. No number."
+            
+            k_nvl "You're still awake, Ren."
+            k_nvl "You shouldn't stay up too late. It makes the mornings harder for you."
+            mc_nvl "Who is this? Wait... Kuroha? How did you even get my number?"
+            k_nvl "You left your student handbook on your desk during second period yesterday when you went to the restroom."
+            k_nvl "Your emergency contact sheet was right in the front pocket. It only took me a few seconds to write it down."
+            mc_nvl "You went through my things...?"
+            k_nvl "I just didn't want to lose a way to reach you. Close your eyes, Ren. Sleep well."
+            nvl clear
 
-    jump next_morning
+    n "I set the phone back down on the nightstand, its screen slowly fading back to black."
+    
+    if free_choice == "kuroha":
+        play music creepy fadein 3.0
+        n "My heart beats a little faster against my chest, a cold weight settling in my stomach."
+        n "I slowly glance toward the window."
+        n "The streetlamp outside flickers once, casting long, still shadows across the floor."
+        n "She isn't outside. The glass is locked. The room is completely secure."
+        n "But knowing she was standing over my desk, going through my personal belongings while I was gone for just a few minutes..."
+        n "The realization makes the air in my own room feel suddenly thin."
+        mc "…"
+        mc "Tomorrow… I need to figure out what she's planning."
+    else:
+        play music sad1 fadein 2.0
+        n "The comfort of the sheets does little to ease the strange tightness in my chest."
+        n "The room is perfectly quiet, completely normal."
+        n "But the boundaries of that normalcy are beginning to fray, leaving a phantom chill on the back of my neck."
+        mc "Tomorrow..."
+        
+    pause 1.0
+    scene black with fade
+    pause 1.5
+    
+    n "And just like that, another day slips away into the dark."
+    
+    jump day3_morning
 
 

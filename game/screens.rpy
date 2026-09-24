@@ -302,7 +302,7 @@ screen navigation():
 
                 #textbutton _("Start") action Start()
                 imagebutton:
-                    auto "menu_ui/start_%s.png"
+                    auto "menu_ui/play_%s.png"
                     action Start()
 
             
@@ -311,11 +311,17 @@ screen navigation():
                 textbutton _("History") action ShowMenu("history")
 
                 textbutton _("Save") action ShowMenu("save")
+           
 
+            #textbutton _("Load") action ShowMenu("load")
+            imagebutton:
+                    auto "menu_ui/load_%s.png"
+                    action ShowMenu("load")
+            #textbutton _("Preferences") action ShowMenu("preferences")
+            imagebutton:
+                    auto "menu_ui/preference_%s.png"
+                    action ShowMenu("preferences")
 
-            textbutton _("Load") action ShowMenu("load")
-
-            textbutton _("Preferences") action ShowMenu("preferences")
 
             if _in_replay:
 
@@ -325,18 +331,30 @@ screen navigation():
 
                 textbutton _("Main Menu") action MainMenu()
 
-            textbutton _("About") action ShowMenu("about")
+            #textbutton _("About") action ShowMenu("about")
+            imagebutton:
+                    auto "menu_ui/about_%s.png"
+                    action ShowMenu("about")
+
 
             if renpy.variant("pc") or (renpy.variant("web") and not renpy.variant("mobile")):
 
                 ## Help isn't necessary or relevant to mobile devices.
-                textbutton _("Help") action ShowMenu("help")
+                #textbutton _("Help") action ShowMenu("help")
+                imagebutton:
+                    auto "menu_ui/help_%s.png"
+                    action ShowMenu("help")
+
 
             if renpy.variant("pc"):
 
                 ## The quit button is banned on iOS and unnecessary on Android and
                 ## Web.
-                textbutton _("Quit") action Quit(confirm=not main_menu)
+                #textbutton _("Quit") action Quit(confirm=not main_menu)
+                imagebutton:
+                    auto "menu_ui/quit_%s.png"
+                    action Quit(confirm=not main_menu)
+
     else:
         vbox:
             style_prefix "navigation"
@@ -360,7 +378,7 @@ screen navigation():
             textbutton _("Load") action ShowMenu("load")
 
             textbutton _("Preferences") action ShowMenu("preferences")
-
+        
             if _in_replay:
 
                 textbutton _("End Replay") action EndReplay(confirm=True)
@@ -394,6 +412,7 @@ style navigation_button:
 style navigation_button_text:
     properties gui.text_properties("navigation_button")
     xalign 0.5
+    
 style hnavigation_button_text:
     xalign 0.5
 
@@ -423,11 +442,11 @@ screen main_menu():
         vbox:
             style "main_menu_vbox"
 
-            text "[config.name!t]":
-                style "main_menu_title"
+            #text "[config.name!t]":
+                #style "main_menu_title"
 
-            text "[config.version]":
-                style "main_menu_version"
+            #text "[config.version]":
+                #style "main_menu_version"
 
 
 style main_menu_frame is empty
@@ -443,22 +462,22 @@ style main_menu_frame:
     background None
 
 style main_menu_vbox:
-    xalign 1.0
+    xalign 0.5
     xoffset -30
     xmaximum 1200
-    yalign 1.0
-    yoffset -30
+    yalign 0
+    yoffset 50
 
 style main_menu_text:
     properties gui.text_properties("main_menu", accent=True)
-
+    
 style main_menu_title:
     properties gui.text_properties("title")
-
+    color "#98b9eb"
+    
 style main_menu_version:
     properties gui.text_properties("version")
     
-
 
 
 ## Game Menu screen ############################################################
@@ -561,7 +580,7 @@ style game_menu_outer_frame:
     background "gui/overlay/game_menu.png"
 
 style game_menu_navigation_frame:
-    xsize 420
+    xsize 600
     yfill True
 
 style game_menu_content_frame:
@@ -1105,10 +1124,6 @@ screen keyboard_help():
         text _("Takes a screenshot.")
 
     hbox:
-        label "V"
-        text _("Toggles assistive {a=https://www.renpy.org/l/voicing}self-voicing{/a}.")
-
-    hbox:
         label "Shift+A"
         text _("Opens the accessibility menu.")
 
@@ -1183,7 +1198,7 @@ style help_label:
     right_padding 30
 
 style help_label_text:
-    size gui.text_size
+    size 60
     xalign 1.0
     textalign 1.0
 

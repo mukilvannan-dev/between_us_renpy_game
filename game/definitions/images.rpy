@@ -1,3 +1,8 @@
+# ==============================================================================
+# Backgrounds, CGs, and Menu Images
+# ==============================================================================
+
+# Backgrounds
 image quiet_crossing = "images/backround/quite crossing.png"
 image black_bs = "images/backround/bgs_black.jpg"
 image school_road = "images/backround/school_road.png"
@@ -18,11 +23,13 @@ image rooftop_day = "images/backround/rooftop_day.png"
 image backschool_day = "images/backround/back_shool_day.png"
 image corridor_day = "images/backround/Corridor Day.png"
 
-#cg
+# CGs
 image reina_cg_library = "images/cg/reina_library_cg.png"
 image kuroha_cg_shelter = "images/cg/kuroha_shelter_cg.png"
 image aira_rooftop = "images/cg/aira_rooftop_cg.png"
 image reina_sleep_cg = "images/cg/reina_sleep_cg.png"
 image kuroha_backschool = "images/cg/kuroha_backschool_cg.png"
 
-
+# Menu & Splash Images
+image mukil_presents = "images/menu_ui/mukil_presents.png"
+image title = "images/menu_ui/HomeScreenBackground.jpg"

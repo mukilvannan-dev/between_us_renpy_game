@@ -1,4 +1,9 @@
-define audio.bgm_rain =  "audio/bgs/rain.mp3"
+# ==============================================================================
+# Audio Definitions (BGM & SFX)
+# ==============================================================================
+
+# Background Music
+define audio.bgm_rain = "audio/bgs/rain.mp3"
 define audio.morning_casual = "audio/bgs/morning_casual.mp3"
 define audio.uncertainity = "audio/bgs/uncertain.mp3"
 define audio.sad1 = "audio/bgs/sad2.mp3"
@@ -11,4 +16,6 @@ define audio.sweet = "audio/bgs/vntrack06.mp3"
 define audio.classroom_casual = "audio/bgs/vntrack03.mp3"
 define audio.dangers_in_my_heart = "audio/bgs/boku_yaba_best.mp3"
 define audio.gorogoro = "audio/bgs/goro goro rem - Notificaciones el Darth.mp3"
+
+# Sound Effects
 define audio.sfx_phone_buzz = "audio/sfx/freesound_community-phone_buzz-36086.mp3"

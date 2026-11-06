@@ -924,7 +924,7 @@ label reina_scene4:
             r "…You still finished the book though."
 
         "Sit beside her":
-            $ reina_affection += 2
+            $ reina_affection += 3
 
             n "I sit down beside the bench."
 
@@ -1602,7 +1602,7 @@ label home_night_scene:
     nvl clear
     
     menu:
-        "Check messages from Aira" if aira_affection >= 2 and free_choice == "aira":
+        "Check messages from Aira" if aira_affection >= 3 and free_choice == "aira":
             n "It's a text from Aira."
             a_nvl "Hey, you made it home alright?"
             a_nvl "You looked like a zombie during lunch today. Seriously, don't forget to eat dinner."
@@ -1656,10 +1656,9 @@ label home_night_scene:
     
     n "And just like that, another day slips away into the dark."
     
-    jump day3_morning
+    jump day4_morning
 
-# Placeholder / Ending until Day 4 is implemented
+# Compatibility alias
 label day3_morning:
-    scene black with fade
-    n "To be continued..."
-    return
+    jump day4_morning
+

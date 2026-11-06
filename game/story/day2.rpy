@@ -131,47 +131,51 @@ label lunch_day2:
         yalign -1.0
     with dissolve
 
-    a "You’re quiet today."
+    a "You look half-asleep today."
 
-    mc "Am I?"
+    mc "I'm awake."
 
-    a "More than usual."
+    show aira pout at left:
+        yalign -1.0
 
-    pause 0.5
+    a "Your eyes say otherwise. Did you stay up all night again?"
 
-    mc "Just tired."
+    menu:
+        "Just had trouble sleeping. Nothing serious.":
+            $ aira_affection += 3
+            show aira neutral at left:
+                yalign -1.0
+            a "Well, make sure you don't pass out on your desk. I'm not carrying you to the nurse's office."
 
-    a "…Hmm."
+            mc "I wouldn't dream of troubling your delicate arms."
 
-    pause 0.5
+            show aira happy at left:
+                yalign -1.0
+            a "Hey, I have plenty of muscle! But you're still walking yourself."
 
-    a "You stayed back again yesterday."
+        "Are you worried about me, Aira?":
+            $ aira_affection += 3
+            show aira embarrassed at left:
+                yalign -1.0
+            a "I-in your dreams! I just don't want to explain to your mom why you showed up looking like a zombie."
 
-    mc "Yeah."
+            mc "Right, of course. Deeply concerned about my mother's opinion."
 
-    a "You’re doing that a lot."
+            show aira pout at left:
+                yalign -1.0
+            a "Shut up and finish your lunch."
 
-    pause 0.5
+        "I'm fine, really. Just spaced out.":
+            $ aira_affection += 1
+            show aira neutral at left:
+                yalign -1.0
+            a "If you say so. Just don't overdo it, okay?"
 
-    mc "Maybe."
+            mc "I won't. Thanks, Aira."
 
-    pause 0.5
-
-    n "She watches me for a second."
-
-    pause 0.5
-
-    a "Don’t overdo it."
-
-    mc "I won’t."
-
-    pause 0.5
-
-    a "You say that like you mean it."
-
-    mc "I do."
-
-    a "…Right."
+            show aira happy at left:
+                yalign -1.0
+            a "Good."
 
     pause 0.5
 
@@ -641,7 +645,7 @@ label reina_scene3:
     pause 0.7
     menu:
         "You don’t have to stay alone":
-            $ reina_affection += 2
+            $ reina_affection += 1
             mc "You don’t have to stay here alone all the time."
 
             r "…I’m not alone."
@@ -999,7 +1003,6 @@ label kuroha_rain_scene:
 
         "You’re really awkward":
 
-            $kuroha_affection+=1
             mc "You’re really awkward, aren't you?"
 
             pause 0.5

@@ -116,7 +116,7 @@ label aira_scene1:
 
     n "…Rude."
 
-    a "Come on, let’s go before we’re late."
+    a "Come on, let’s go before we’re actually late."
 
     hide aira
     with dissolve
@@ -133,47 +133,63 @@ label aira_scene1:
         yalign -1.0
     with dissolve
 
-    a "So?"
+    n "We fall into step beside each other, the same rhythm we've had for years."
 
-    a "Still tripping over absolutely nothing while walking?"
+    a "So? Be honest."
 
-    menu:
-        "Yeah, probably":
-            show aira happy
-            a "Knew it."
-
-        "Only in public":
-            a "That somehow makes it worse."
-
-        "I evolved":
-            a "Into what?"
-
-            mc "A better idiot."
-
-            show aira happy
-            a "Fair enough."
-
-    show aira neutral
-
-    n "We walk beside each other like usual."
-
-    n "The silence between us never feels awkward."
-
-    a "You know…"
-
-    a "It’s kinda nice walking like this again."
+    a "Did you almost trip over your own shoelaces on the way here?"
 
     menu:
-        "Yeah. Feels normal":
-            a "Exactly."
+        "I was contemplating the universe, actually.":
+            $ aira_affection += 1
+            show aira happy at left:
+                yalign -1.0
+            a "Ah yes, the deep philosophical mysteries of staring into rain puddles."
 
-        "You sound old":
-            show aira pout
-            a "And you sound annoying."
+            mc "It takes profound intellect. You wouldn't understand."
 
-        "You getting emotional?":
-            show aira happy
-            a "Shut up before I leave you behind."
+            show aira pout at left:
+                yalign -1.0
+            a "Keep talking like that and I'll push you into the next puddle."
+
+        "Only because someone took forever getting ready.":
+            show aira pout at left:
+                yalign -1.0
+            a "I told you, it was one minute!"
+
+            a "A girl needs time to make sure she doesn't look like a walking disaster."
+
+            mc "Could've fooled me."
+
+            show aira happy at left:
+                yalign -1.0
+            a "Hey! Watch it, or I won't share my notes with you later."
+
+        "My balance has actually improved.":
+            show aira happy at left:
+                yalign -1.0
+            a "Right. Is that why you nearly walked headfirst into a street sign back there?"
+
+            mc "I was testing its structural integrity."
+
+            a "Sure you were."
+
+    show aira neutral at left:
+        yalign -1.0
+
+    n "The easy back-and-forth clears up the morning fog in my head."
+
+    n "No awkward pauses. No need to watch what I say."
+
+    a "It is nice walking like this again, though."
+
+    mc "Yeah. Feels normal."
+
+    show aira happy at left:
+        yalign -1.0
+
+    a "Good. Don't go getting used to peace and quiet when I'm around."
+
 label aira_arrival:
 
     scene school_gate:
@@ -184,89 +200,29 @@ label aira_arrival:
         yalign -1.0
     with dissolve
 
-    n "We reach the school gate."
+    n "We reach the school gate as the morning crowd thickens."
 
-    n "The same crowded entrance. The same noisy morning."
+    a "See? Perfect timing. You'd definitely still be wandering around the neighborhood if I wasn't here to steer you."
 
-    a "See?"
+    mc "I know the way to school, Aira."
 
-    a "If I wasn’t here, you’d definitely be late."
+    show aira pout at left:
+        yalign -1.0
 
-    menu:
-        "I would've made it":
-            show aira pout at left:
-                yalign -1.0
-            a "Yeah, sure."
+    a "Knowing the way and actually arriving on time are two completely different skills for you."
 
-            a "And I’m the principal."
+    n "Students stream past us laughing, rushing, half-asleep."
 
-        "Yeah, probably":
-            $ aira_affection += 1
-            show aira happy
-            a "Finally."
-
-            a "You admit I’m useful."
-
-        "You talk too much":
-            show aira pout
-            a "Wow."
-
-            a "And yet you still listen to me."
-
-    n "Students pass by us laughing, arguing, half-asleep."
-
-    n "Everything feels normal."
-
-    n "Too normal."
-
-    n "Someone laughs louder than they mean to."
-
-    n "Someone avoids looking at another person."
-
-    n "Small things stand out when you pay attention."
+    n "A familiar morning."
 
     show aira neutral at center:
         yalign -1.0
 
-    a "…You’re doing it again."
+    a "Come on, slowpoke. Let's get inside before the halls get jammed."
 
-    menu:
-        "Doing what?":
-            a "That staring thing."
+    n "She marches ahead toward the shoe lockers, energetic as always."
 
-        "I’m literally just standing here":
-            a "Mhm."
-
-            a "And overthinking."
-
-        "You notice too much":
-            $ aira_affection += 1
-            show aira happy
-            a "Well, someone has to keep an eye on you."
-
-    a "You always start observing everyone like you're solving a mystery."
-
-    mc "Maybe I am."
-
-    show aira pout at center:
-        yalign -1.0
-
-    a "Please."
-
-    a "You’d be the worst detective ever."
-
-    mc "That’s rude."
-
-    show aira happy at center:
-        yalign -1.0
-
-    a "But accurate."
-
-    a "Come on, we still have time before class."
-
-    n "She starts walking ahead."
-
-    n "And without thinking, I follow beside her like always."
+    n "And without thinking, I follow beside her."
 
 label classroom_scene:
 
@@ -300,130 +256,107 @@ label lunch_scene:
         yalign -1.0
     with dissolve
 
-    n "Lunch break."
+    n "The noon bell rings, instantly breaking the quiet of the classroom."
 
-    a "You didn’t bring anything again, did you?"
+    n "Desks slide across the floor as groups form, chatter rising all at once."
 
-    mc "…I thought about it."
+    n "Aira pulls her chair up to my desk, dropping her bento down with a deliberate thud."
 
-    a "That’s not the same as bringing it."
+    a "Let me guess."
 
-    mc "I know."
+    a "You forgot lunch again."
 
-    a "You’re impossible."
+    mc "…I remembered it in spirit."
 
-    menu:
-        "I forgot":
-            $ aira_affection += 1
-            mc "I actually forgot this time."
-            a "…You say that every time. Here."
+    show aira pout at center:
+        yalign -1.0
 
-        "I wasn’t hungry":
-            mc "I wasn’t really hungry."
-            a "You say that now, but you’ll complain later. Here."
+    a "Your spirit isn't going to stop your stomach from growling during fifth period."
 
-        "Stay silent":
-            $ aira_affection -= 1
-            a "…Hey. Don’t just sit there quietly."
+    mc "A minor detail."
 
-    a "I made extra."
+    a "A very loud detail."
 
-    mc "You always do."
+    show aira happy at center:
+        yalign -1.0
 
-    a "And you always don’t bring lunch."
+    n "She pops the lid off her box, revealing an extra set of rolled omelet and rice balls."
 
-    mc "Fair."
-
-    show aira happy
-
-    a "Say ‘ah’."
+    a "Lucky for you, my mom made way too much this morning. Or maybe she just knew you'd be hopeless."
 
     menu:
-        "Accept":
+        "You’re a lifesaver, Aira.":
             $ aira_affection += 1
-            mc "…Fine."
-            a "Good."
+            show aira happy at center:
+                yalign -1.0
+            a "Naturally! Remember this the next time I need someone to carry my bags."
 
-        "Take it yourself":
-            mc "I can eat on my own."
-            a "Where’s the fun in that?"
+            mc "There's always a price with you."
 
-        "Refuse":
-            $ aira_affection -= 1
-            mc "I’m good."
-            show aira pout
-            a "…Oh. Okay."
+            a "Nothing in life is free, Ren. Especially not homemade food."
 
-    n "I take a bite."
+        "Are you sure this isn't a test batch? Am I the poison tester?":
+            show aira pout at center:
+                yalign -1.0
+            a "Hey! My cooking skills—and my mom's—are five-star compared to the convenience store junk you eat."
 
-    mc "It’s good."
+            mc "Alright, alright, fair point."
 
-    a "That sounded forced."
+            show aira happy at center:
+                yalign -1.0
+            a "Eat it before I change my mind and eat it all myself."
 
-    mc "It’s not."
+        "I could’ve survived on water until dinner.":
+            show aira pout at center:
+                yalign -1.0
+            a "Right. And then you'd pass out during gym class and embarrass us both."
 
-    a "Then say it properly."
+            a "Just take a bite, idiot."
 
-    mc "…It’s really good."
+    show aira neutral at center:
+        yalign -1.0
 
-    a "Better."
+    n "I take one of the tamagoyaki. It's warm, slightly sweet, and surprisingly good."
 
-    show aira neutral
+    mc "It’s really good."
 
-    pause 0.5
+    show aira happy at center:
+        yalign -1.0
 
-    a "You’re still clumsy though, right?"
+    a "Told you."
 
-    mc "Yeah… probably."
+    show aira neutral at center:
+        yalign -1.0
 
-    a "I figured. Some things don’t change."
+    pause 0.4
 
-    mc "You sound relieved."
-
-    a "Maybe I am."
-
-    pause 0.5
-
-    a "…Hey. You’ve been a bit weird lately."
-
-    mc "Weird how?"
-
-    a "I don’t know. You just… go quiet sometimes. More than usual."
-
-    mc "It’s nothing."
-
-    a "If you say so."
-    pause 0.3
-
-    n "For a second… I feel like someone’s watching."
+    n "For a split second… a strange prickle hits the back of my neck."
 
     pause 0.3
 
-    n "I glance around."
+    n "Like someone is watching."
+
+    pause 0.4
+
+    n "I glance toward the classroom door, but there's only students wandering through the hall."
 
     n "Nothing unusual."
 
-    pause 0.3
+    show aira pout at center:
+        yalign -1.0
 
-    pause 0.5
+    a "Earth to Ren? Don't tell me you're spacing out in the middle of eating."
 
-    show aira pout
+    mc "Just thinking."
 
-    a "Just don’t skip meals. You’re already bad enough as it is."
+    show aira happy at center:
+        yalign -1.0
 
-    mc "Wow."
+    a "Careful, don't strain your brain. Finish up before the bell rings."
 
-    a "I’m serious. You’d probably collapse without me."
+    n "She digs into her own lunch, humming softly to herself."
 
-    mc "That bad?"
-
-    a "Worse."
-
-    show aira happy
-
-    n "She smiles like it’s a joke."
-
-    n "It probably is… mostly."
+    n "Whatever that feeling was… it fades away."
 
 label class_skip:
 
@@ -721,11 +654,11 @@ label aira_scene3:
         zoom 1.5
     with fade
 
-    play music sad1 fadein 1.5
+    play music morning_casual fadein 1.5
 
-    n "By the time I leave school, the sun’s already starting to set."
+    n "By the time I leave the building, the afternoon sky is streaked with amber and dull orange."
 
-    n "Most students are already gone."
+    n "Most of the courtyard is empty, the breeze chilling down."
 
     pause 0.5
 
@@ -746,56 +679,38 @@ label aira_scene3:
 
     mc "That’s basically five."
 
-    a "That’s not how numbers work."
+    a "That’s not how numbers work, Ren."
 
-    a "You stayed back again?"
+    a "Class ended twenty minutes ago. What were you doing in there, taking a nap?"
 
-    menu:
-        "Yeah":
-            $ aira_affection += 1
-            mc "Library."
-
-            a "Wow."
-
-            a "Look at you being academic."
-
-        "Just a little":
-            mc "It wasn’t that long."
-
-            a "You always say that."
-
-        "Got distracted":
-            show aira happy
-            mc "There was a cat outside."
-
-            a "…Okay, that’s actually believable."
+    mc "I was in the library."
 
     show aira neutral at left:
         yalign -1.0
 
-    a "You’ve been doing that a lot lately though."
+    a "…The library?"
 
-    mc "Doing what?"
+    a "You? Voluntarily?"
 
-    a "Staying behind after class."
+    mc "Why does everyone react like I confessed to a crime?"
 
-    pause 0.4
+    show aira happy at left:
+        yalign -1.0
 
-    a "It’s weird."
+    a "Because you once used an encyclopedia as a pillow."
 
-    mc "Why?"
+    mc "That was one time."
 
-    a "Because you used to run out of school like your life depended on it."
+    a "Three times! One of them had your drool on page forty."
 
-    mc "Maybe I matured."
+    mc "That was a bookmark."
 
-    show aira happy
+    show aira pout at left:
+        yalign -1.0
 
-    a "No chance."
+    a "Gross."
 
-    pause 0.5
-
-    n "We start walking home together."
+    n "We step past the school gates and start our usual walk back."
 
     scene corner_evening:
         zoom 1.5
@@ -805,79 +720,59 @@ label aira_scene3:
         yalign -1.0
     with dissolve
 
-    n "Same road."
+    n "The amber glow of the setting sun stretches our shadows along the asphalt."
 
-    n "Same evening routine."
-
-    a "So what do you even do there that long?"
-
-    mc "Reading."
-
-    pause 0.2
-
-    a "…You?"
-
-    mc "Why does everyone react like that?"
-
-    a "Because you once used a book as a pillow."
-
-    mc "That was one time."
-
-    a "Three times."
+    a "So what were you actually doing in there?"
 
     menu:
-        "I’m improving":
+        "I'm trying to become an intellectual.":
             $ aira_affection += 1
-            a "Scary."
+            show aira happy at left:
+                yalign -1.0
+            a "Terrifying. If you actually start getting good grades, the universe might break."
 
-            a "At this rate you might actually become responsible."
+            mc "Have a little faith in me."
 
-        "Books are less boring now":
-            a "Wow."
+            a "I have faith in your ability to sleep through an earthquake. That’s about it."
 
-            a "Character development."
+        "Someone actually recommended a book to me.":
+            show aira pout at left:
+                yalign -1.0
+            a "Wait, seriously? Who? Don't tell me you actually talked to someone?"
 
-        "Someone recommended one":
-            show aira pout
-            a "Oh?"
+            mc "I can talk to people, Aira."
 
-            a "Who?"
+            a "Debatable. Who was it anyway?"
 
-    pause 0.4
+            mc "Just the girl on library duty."
 
-    mc "Why do you sound so suspicious?"
+            show aira neutral at left:
+                yalign -1.0
+            a "Hmm. Suspicious. But I’ll let you off the hook for now."
 
-    a "I’m not suspicious."
+        "It was just quiet. Wanted some fresh air for my brain.":
+            show aira neutral at left:
+                yalign -1.0
+            a "Well, fair enough. But next time give me a heads-up so I don’t freeze waiting by the gate."
 
-    pause 0.2
+            mc "You could have walked home without me."
 
-    show aira happy
+            show aira pout at left:
+                yalign -1.0
+            a "And miss the chance to complain at you? Never."
 
-    a "I’m judging you."
+    show aira happy at left:
+        yalign -1.0
 
-    mc "That’s worse."
+    a "Besides, who else am I supposed to bully on the walk back?"
 
-    n "She laughs quietly."
+    mc "So I’m just your daily entertainment."
 
-    pause 0.5
+    a "Top-tier entertainment. And completely free."
 
-    a "Still…"
+    mc "I feel valued."
 
-    a "Don’t stay too late every day."
-
-    mc "Why? You get lonely walking home alone?"
-
-    show aira pout
-
-    a "Obviously."
-
-    a "Who else am I supposed to bully on the way home?"
-
-    mc "So I’m just entertainment?"
-
-    show aira happy
-
-    a "Exactly."
+    a "As you should."
 
     pause 0.5
 
@@ -887,6 +782,7 @@ label aira_scene3:
 
     stop music fadeout 1.5
     pause 0.5
+
 label kuroha_intro:
 
     scene to_the_house_road
@@ -993,15 +889,44 @@ label kuroha_intro:
 
     pause 1.0
 
-    mc "…"
+    menu:
+        "Turn around and ask who she is":
+            $ kuroha_affection += 1
+            mc "…Who are you? How do you even know that?"
 
-    n "I don’t turn back."
+            pause 0.6
 
-    pause 0.8
+            show kuroha blush
 
-    show kuroha blush
+            none "…I just pay attention to you, Ren."
 
-    n "But I can still feel it… like she’s still standing there."
+            pause 0.7
+
+            mc "…How do you know my name?"
+
+            none "Get home safe."
+
+        "Call out without looking back":
+            mc "…I was just at the library."
+
+            pause 0.6
+
+            none "…I know."
+
+            show kuroha blush
+
+            none "Good night, Ren."
+
+        "Say nothing and keep walking":
+            mc "…"
+
+            n "I don’t turn back."
+
+            pause 0.8
+
+            show kuroha blush
+
+            n "But I can still feel it… like she’s still standing there."
 
     pause 1.0
 

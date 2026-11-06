@@ -29,6 +29,7 @@ default aira_affection = 0
 default reina_affection = 0
 default kuroha_affection = 0
 default free_choice = None
+default free_choice_day4 = None
 
 # ==============================================================================
 # Character Sprites
